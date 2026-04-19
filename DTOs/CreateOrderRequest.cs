@@ -3,6 +3,7 @@ namespace BrownieShop.API.DTOs
     public class CreateOrderRequest
     {
         public string CustomerName { get; set; }
+        public string Email { get; set; }
         public List<CartItemDTO> Items { get; set; } = new List<CartItemDTO>();
     }
 

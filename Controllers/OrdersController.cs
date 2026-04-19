@@ -29,7 +29,7 @@ namespace BrownieShop.API.Controllers
 
         // POST: api/orders
         [HttpPost]
-        public async Task<ActionResult<Order>> PostOrder(CreateOrderRequest request)
+        public async Task<ActionResult<Order>> PostOrder(CreateOrderRequest request, [FromServices] Services.EmailService emailService)
         {
             if (request.Items == null || !request.Items.Any())
             {
@@ -44,6 +44,7 @@ namespace BrownieShop.API.Controllers
             };
 
             decimal total = 0;
+            var productNames = new List<string>();
 
             foreach (var itemDto in request.Items)
             {
@@ -61,12 +62,29 @@ namespace BrownieShop.API.Controllers
 
                 order.Items.Add(orderItem);
                 total += brownie.Price * itemDto.Quantity;
+                productNames.Add($"{itemDto.Quantity}x {brownie.Name}");
             }
 
             order.Total = total;
 
             _context.Orders.Add(order);
             await _context.SaveChangesAsync();
+
+            // Background email send
+            try
+            {
+                var targetEmail = string.IsNullOrEmpty(request.Email) ? "furtheen23@gmail.com" : request.Email;
+                var productsStr = string.Join(", ", productNames);
+                await emailService.SendEmail(
+                    targetEmail,
+                    "Order Confirmed 🍫",
+                    $"Hi {request.CustomerName}, your order for {productsStr} is confirmed! Total: ₹{total}."
+                );
+            }
+            catch
+            {
+                // Optionally log here, but don't stop the order
+            }
 
             return CreatedAtAction("GetOrder", new { id = order.Id }, order);
         }
