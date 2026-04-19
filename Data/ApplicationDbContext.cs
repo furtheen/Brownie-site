@@ -21,9 +21,12 @@ namespace BrownieShop.API.Data
             
             // Seed some default brownies
             modelBuilder.Entity<Brownie>().HasData(
-                new Brownie { Id = 1, Name = "Classic Brownie", Description = "A rich, moist chocolate brownie.", Price = 120, ImageUrl = "classic.jpg" },
-                new Brownie { Id = 2, Name = "Nutella Brownie", Description = "Loaded with creamy Nutella.", Price = 180, ImageUrl = "nutella.jpg" },
-                new Brownie { Id = 3, Name = "Walnut Brownie", Description = "Classic chocolate brownie with crunchy walnuts.", Price = 150, ImageUrl = "walnut.jpg" }
+                new Brownie { Id = 1, Name = "Classic Brownie", Description = "Rich dark chocolate, dense and fudgy. The one that started it all.", Price = 60, ImageUrl = "🍫" },
+                new Brownie { Id = 2, Name = "Walnut Brownie", Description = "Classic brownie loaded with crunchy California walnuts on every bite.", Price = 75, ImageUrl = "🌰" },
+                new Brownie { Id = 3, Name = "Choco Chip Brownie", Description = "Double chocolate — fudgy base + melted choco chips throughout.", Price = 70, ImageUrl = "🍪" },
+                new Brownie { Id = 4, Name = "Oreo Brownie", Description = "Crushed Oreo cookies baked right into our signature brownie batter.", Price = 80, ImageUrl = "⚫" },
+                new Brownie { Id = 5, Name = "Nutella Brownie", Description = "A swirl of Nutella baked into every bite. Pure indulgence.", Price = 90, ImageUrl = "🫙" },
+                new Brownie { Id = 6, Name = "Brownie Sundae", Description = "Warm brownie topped with vanilla ice cream and chocolate drizzle.", Price = 120, ImageUrl = "🍨" }
             );
         }
     }

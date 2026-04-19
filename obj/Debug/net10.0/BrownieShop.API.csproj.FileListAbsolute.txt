@@ -162,3 +162,4 @@ D:\backends\BrownieShop.API\BrownieShop.API\obj\Debug\net10.0\ref\BrownieShop.AP
 D:\backends\BrownieShop.API\BrownieShop.API\bin\Debug\net10.0\BouncyCastle.Crypto.dll
 D:\backends\BrownieShop.API\BrownieShop.API\bin\Debug\net10.0\Razorpay.dll
 D:\backends\BrownieShop.API\BrownieShop.API\bin\Debug\net10.0\web.config
+D:\backends\BrownieShop.API\BrownieShop.API\obj\Debug\net10.0\BrownieShop.API.sourcelink.json
